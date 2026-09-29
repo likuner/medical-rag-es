@@ -1,0 +1,27 @@
+# ---- Core crawling / cleaning / chunking -------------------------------
+requests>=2.31
+beautifulsoup4>=4.12
+lxml>=5.0
+
+# ---- Vector store (Elasticsearch) ----------------------------------------
+elasticsearch>=9,<10
+
+# ---- Vectorisation -------------------------------------------------------
+# llama-index-core is used only for its SentenceSplitter (text chunking); we
+# pass a custom Chinese-aware tokenizer so tiktoken/nltk stay offline.
+llama-index-core==0.14.24
+# numpy<2 is required by torch 2.2.x (the newest torch available on some
+# macOS/PyPI mirrors); scikit-learn 1.5.x is the last line that still builds
+# cleanly against numpy 1.x. Both the TF-IDF backend and the semantic backend
+# share this stack.
+numpy==1.26.4
+scikit-learn==1.5.2
+scipy==1.17.1
+
+# Semantic embeddings (preferred default). These versions are compatible with
+# torch 2.2.x / transformers 4.x / numpy 1.x. If you have a newer torch
+# available you can bump them, but pinning keeps the pipeline reproducible.
+sentence-transformers==2.7.0
+transformers==4.44.2
+tokenizers==0.19.1
+torch==2.2.2

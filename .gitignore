@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# IDE
+.idea/
+*.swp
+
+# ZCode working files
+.zcode/
+
+# macOS
+.DS_Store
+
+# Secrets (GLM API key etc.) — keep out of version control
+.env
+
+# Exported Elasticsearch CA cert (per-install, not source)
+certs/
+
+# Downloaded crawl/sitemap caches
+data/raw/
+data/processed/
+
+# Model / tool caches
+*.joblib
+~/.cache/
